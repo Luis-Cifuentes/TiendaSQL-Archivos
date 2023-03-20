@@ -10,4 +10,19 @@ package com.mycompany.tiendasql.entidades;
  */
 public class Cliente {
     
+    //Atributos
+    private int nit;
+    private String nombre;
+    private String apellido;
+
+    public Cliente(int nit, String nombre, String apellido) {
+        this.nit = nit;
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+    
+    
+    
+    
+    
 }

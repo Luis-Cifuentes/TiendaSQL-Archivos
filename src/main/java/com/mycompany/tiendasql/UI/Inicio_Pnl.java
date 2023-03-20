@@ -26,21 +26,90 @@ public class Inicio_Pnl extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        jLabelIntroduccion1 = new javax.swing.JLabel();
+        jLabelIntroduccion2 = new javax.swing.JLabel();
+        jPanelVison = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanelMision = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelIntroduccion1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelIntroduccion1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelIntroduccion1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIntroduccion1.setText("Tienda en linea con productos electrodomesticos a");
+        add(jLabelIntroduccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 830, -1));
+
+        jLabelIntroduccion2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelIntroduccion2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelIntroduccion2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIntroduccion2.setText("los mejores precios.");
+        add(jLabelIntroduccion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 830, -1));
+
+        jPanelVison.setBackground(new java.awt.Color(240, 230, 140));
+        jPanelVison.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(128, 0, 128), 5));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Visión");
+
+        javax.swing.GroupLayout jPanelVisonLayout = new javax.swing.GroupLayout(jPanelVison);
+        jPanelVison.setLayout(jPanelVisonLayout);
+        jPanelVisonLayout.setHorizontalGroup(
+            jPanelVisonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelVisonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanelVisonLayout.setVerticalGroup(
+            jPanelVisonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelVisonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(219, Short.MAX_VALUE))
         );
+
+        add(jPanelVison, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 350, 270));
+
+        jPanelMision.setBackground(new java.awt.Color(230, 230, 250));
+        jPanelMision.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 240, 245), 20));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Misión");
+
+        javax.swing.GroupLayout jPanelMisionLayout = new javax.swing.GroupLayout(jPanelMision);
+        jPanelMision.setLayout(jPanelMisionLayout);
+        jPanelMisionLayout.setHorizontalGroup(
+            jPanelMisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMisionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelMisionLayout.setVerticalGroup(
+            jPanelMisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMisionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(189, Short.MAX_VALUE))
+        );
+
+        add(jPanelMision, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, 350, 270));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelIntroduccion1;
+    private javax.swing.JLabel jLabelIntroduccion2;
+    private javax.swing.JPanel jPanelMision;
+    private javax.swing.JPanel jPanelVison;
     // End of variables declaration//GEN-END:variables
 }

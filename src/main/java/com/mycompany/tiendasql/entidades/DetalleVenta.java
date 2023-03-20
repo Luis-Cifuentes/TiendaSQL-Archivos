@@ -8,51 +8,42 @@ package com.mycompany.tiendasql.entidades;
  *
  * @author lroda
  */
-public class Producto {
+public class DetalleVenta {
     
-    //Atributos
     private String codigoPdt;
-    private int inventario;
     private String nombrePdt;
-    private String marca;
-    private double precioUnidad;
     private int cantidad;
+    private double precioUnidad;
+    private double subTotal;
 
-    //Constructor
-    public Producto(String codigoPdt, int inventario, String nombrePdt, String marca, double precioUnidad, int cantidad) {
+    public DetalleVenta(String codigoPdt, String nombrePdt, int cantidad, double precioUnidad, double subTotal) {
         this.codigoPdt = codigoPdt;
-        this.inventario = inventario;
         this.nombrePdt = nombrePdt;
-        this.marca = marca;
-        this.precioUnidad = precioUnidad;
         this.cantidad = cantidad;
+        this.precioUnidad = precioUnidad;
+        this.subTotal = subTotal;
     }
-
-    
-    //Getters y Setters
 
     public String getCodigoPdt() {
         return codigoPdt;
-    }
-
-    public int getInventario() {
-        return inventario;
     }
 
     public String getNombrePdt() {
         return nombrePdt;
     }
 
-    public String getMarca() {
-        return marca;
+    public int getCantidad() {
+        return cantidad;
     }
 
     public double getPrecioUnidad() {
         return precioUnidad;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public double getSubTotal() {
+        return subTotal;
     }
+
+    
     
 }

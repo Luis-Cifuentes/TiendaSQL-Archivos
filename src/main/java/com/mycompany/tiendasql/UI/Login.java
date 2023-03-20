@@ -289,7 +289,7 @@ public class Login extends javax.swing.JFrame {
         jLabelTitulo.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(0, 0, 0));
         jLabelTitulo.setText("ELECTRONIC-HOMES");
-        jPanelFondo.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 340, 140));
+        jPanelFondo.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 360, 140));
 
         jLabelUsrInvalido.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabelUsrInvalido.setForeground(new java.awt.Color(255, 0, 0));
@@ -317,100 +317,88 @@ public class Login extends javax.swing.JFrame {
 
     //Cambiamos el fondo y el color de fuente en el boton que cierra el programa al posicionar el mouse encima
     private void jLabelBotonCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBotonCerrarMouseEntered
-        // TODO add your handling code here:
         this.jPanelBtn.setBackground(Color.red); //Se cambio el fondo a rojo
         this.jLabelBotonCerrar.setForeground(Color.white); //Se cambia el color de letra a blanco
     }//GEN-LAST:event_jLabelBotonCerrarMouseEntered
 
     //Cambiamos el fondo y el color de fuente en el boton a la hora de quitar el mouse del mismo
     private void jLabelBotonCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBotonCerrarMouseExited
-        // TODO add your handling code here:
         this.jPanelBtn.setBackground(Color.white); //Regresamos en fondo a blanco
         this.jLabelBotonCerrar.setForeground(Color.black); //Regresamos la fuente a negro
     }//GEN-LAST:event_jLabelBotonCerrarMouseExited
 
     //Metodo que cierra el programa al clickear el boton
     private void jLabelBotonCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBotonCerrarMouseClicked
-        // TODO add your handling code here:
         System.exit(0); //Cerramos el programa
     }//GEN-LAST:event_jLabelBotonCerrarMouseClicked
 
     //Metodo que obtiene las cordenadas del mouse a la hora de presionar la barra
     private void jPanelBarraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelBarraMousePressed
-        // TODO add your handling code here:
         this.mouseX = evt.getX(); //Obtiene la posicion en el eje X
         this.mouseY = evt.getY(); //Obtiene la posicoin en el eje Y
     }//GEN-LAST:event_jPanelBarraMousePressed
 
     //Metodo que se encarga de arrastrar la ventana a donde queramos
     private void jPanelBarraMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelBarraMouseDragged
-        // TODO add your handling code here:
         int posicionX = evt.getXOnScreen(); //Posicion final de la ventana
         int posicionY = evt.getYOnScreen(); //Posicion final de la ventana
         this.setLocation(posicionX - this.mouseX, posicionY - this.mouseY); //Posicion final de la ventana
     }//GEN-LAST:event_jPanelBarraMouseDragged
 
     private void jLabelBtnIngresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBtnIngresarMouseEntered
-        // TODO add your handling code here:
-        this.jPanelBtnIngresar.setBackground(new Color(152, 155, 158));
+        this.jPanelBtnIngresar.setBackground(new Color(152, 155, 158)); //Cambia el color en el boton ingresar al pasar el raton
     }//GEN-LAST:event_jLabelBtnIngresarMouseEntered
 
     private void jLabelBtnIngresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBtnIngresarMouseExited
-        // TODO add your handling code here:
-        this.jPanelBtnIngresar.setBackground(new Color(94, 96, 98));
+        this.jPanelBtnIngresar.setBackground(new Color(94, 96, 98)); //Regresa el color por defecto al boton al salir el raton
     }//GEN-LAST:event_jLabelBtnIngresarMouseExited
 
     private void jTextFieldUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldUserMousePressed
-        // TODO add your handling code here:
-        if (this.jTextFieldUser.getText().equals("Ingrese su usuario")) {
-            this.jTextFieldUser.setText("");
-            this.jTextFieldUser.setForeground(Color.black);
-            this.jTextFieldUser.setFocusable(true);
+        if (this.jTextFieldUser.getText().equals("Ingrese su usuario")) { //Valida que es el texto por defecto
+            this.jTextFieldUser.setText(""); //Setea el texto
+            this.jTextFieldUser.setForeground(Color.black); //Cambio el color de fuente
+            this.jTextFieldUser.setFocusable(true); //Habilita la Escritura
             this.jTextFieldUser.requestFocus();
         }
-        if (String.valueOf(this.jPasswordField.getPassword()).isEmpty()) {
-            this.jPasswordField.setForeground(new Color(153, 153, 153));
-            this.jPasswordField.setText("**********");
-            this.jPasswordField.setFocusable(false);
+        if (String.valueOf(this.jPasswordField.getPassword()).isEmpty()) { //Valida si no hay contraseña
+            this.jPasswordField.setForeground(new Color(153, 153, 153)); //Cambia el color de la fuetne de la contrasenia
+            this.jPasswordField.setText("**********"); //Setea el texto de la contrasenia
+            this.jPasswordField.setFocusable(false); //Deshabilita la escritura
             this.jPasswordField.requestFocus();
         }
     }//GEN-LAST:event_jTextFieldUserMousePressed
 
     private void jPasswordFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldMousePressed
         // TODO add your handling code here:
-        if (String.valueOf(this.jPasswordField.getPassword()).equals("**********")) {
-            this.jPasswordField.setText("");
-            this.jPasswordField.setForeground(Color.black);
-            this.jPasswordField.setFocusable(true);
+        if (String.valueOf(this.jPasswordField.getPassword()).equals("**********")) { //valida si es la contrasenia por defecto 
+            this.jPasswordField.setText(""); //Sete la contrasenia
+            this.jPasswordField.setForeground(Color.black); //Cambia el color de fuente a negro
+            this.jPasswordField.setFocusable(true); //Habilita la escritura
             this.jPasswordField.requestFocus();
         } 
-        if (this.jTextFieldUser.getText().isEmpty()) {
-            this.jTextFieldUser.setForeground(new Color(153, 153, 153));
-            this.jTextFieldUser.setText("Ingrese su usuario");
-            this.jTextFieldUser.setFocusable(false);
+        if (this.jTextFieldUser.getText().isEmpty()) { //Valida si no hay usuario
+            this.jTextFieldUser.setForeground(new Color(153, 153, 153)); //Cambio el color de fuente de usuario
+            this.jTextFieldUser.setText("Ingrese su usuario"); //Setea al texto por defecto
+            this.jTextFieldUser.setFocusable(false); //Deshabilita la escritura
             this.jTextFieldUser.requestFocus();
         }
     }//GEN-LAST:event_jPasswordFieldMousePressed
 
     private void jLabelBtnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBtnIngresarMouseClicked
-        // TODO add your handling code here:
-       Vendedor ui = new Vendedor();
+       Vendedor ui = new Vendedor(); 
        this.setVisible(false);
     }//GEN-LAST:event_jLabelBtnIngresarMouseClicked
 
     private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
-        // TODO add your handling code here:
-        this.jPanelBtnMin.setBackground(new Color(235, 235, 235));
+        this.jPanelBtnMin.setBackground(new Color(235, 235, 235)); //Oscurece el boton minimizar
     }//GEN-LAST:event_jLabel1MouseEntered
 
     private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
-        // TODO add your handling code here:
-        this.jPanelBtnMin.setBackground(Color.white);
+        this.jPanelBtnMin.setBackground(Color.white); //Regresa el color originar del boton
     }//GEN-LAST:event_jLabel1MouseExited
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
-        this.setExtendedState(Login.ICONIFIED);
+        this.setExtendedState(Login.ICONIFIED); //Minimiza la ventana
     }//GEN-LAST:event_jLabel1MouseClicked
 
     /**

@@ -5,10 +5,7 @@
 package com.mycompany.tiendasql.UI;
 
 import com.mycompany.tiendasql.ayudaUI.Imagen;
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Color;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -16,9 +13,7 @@ import javax.swing.SwingUtilities;
  */
 public class Vendedor extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Vendedor
-     */
+    //Creamos las variables
     
     public Vendedor() {
         initComponents();
@@ -27,11 +22,6 @@ public class Vendedor extends javax.swing.JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        Vendedor_Pnl1 sales = new Vendedor_Pnl1();
-        jPanelCard.removeAll();
-        jPanelCard.add(sales);
-        jPanelCard.repaint();
-        jPanelCard.revalidate();
     }
 
     /**
@@ -119,6 +109,11 @@ public class Vendedor extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Generar Venta");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVentasLayout = new javax.swing.GroupLayout(jPanelVentas);
         jPanelVentas.setLayout(jPanelVentasLayout);
@@ -305,6 +300,8 @@ public class Vendedor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Eventos para botones con efecto de cambio de color
+    
     private void jLabelBtnCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBtnCerrarMouseEntered
         this.jPanelBtnCerrar.setBackground(Color.red);
         this.jLabelBtnCerrar.setForeground(Color.white);
@@ -315,10 +312,6 @@ public class Vendedor extends javax.swing.JFrame {
         this.jLabelBtnCerrar.setForeground(Color.black);
     }//GEN-LAST:event_jLabelBtnCerrarMouseExited
 
-    private void jLabelBtnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBtnCerrarMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_jLabelBtnCerrarMouseClicked
-
     private void jLabelBtnMinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBtnMinMouseEntered
         this.jPanelBtnMin.setBackground(new Color(235, 235, 235));
     }//GEN-LAST:event_jLabelBtnMinMouseEntered
@@ -326,10 +319,6 @@ public class Vendedor extends javax.swing.JFrame {
     private void jLabelBtnMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBtnMinMouseExited
         this.jPanelBtnMin.setBackground(Color.white);
     }//GEN-LAST:event_jLabelBtnMinMouseExited
-
-    private void jLabelBtnMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBtnMinMouseClicked
-        this.setExtendedState(Vendedor.ICONIFIED);
-    }//GEN-LAST:event_jLabelBtnMinMouseClicked
 
     private void jPanelCerrarSecionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCerrarSecionMouseEntered
         this.jPanelCerrarSecion.setBackground(new Color(85, 255, 92));
@@ -363,9 +352,27 @@ public class Vendedor extends javax.swing.JFrame {
         this.jPanelClientesUpdate.setBackground(new Color(0, 255, 23));
     }//GEN-LAST:event_jPanelClientesUpdateMouseExited
 
+    //Eventos para botones con click
+    
     private void jPanelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelHomeMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jPanelHomeMouseClicked
+
+    private void jLabelBtnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBtnCerrarMouseClicked
+        System.exit(0); //Cerramos la App
+    }//GEN-LAST:event_jLabelBtnCerrarMouseClicked
+
+    private void jLabelBtnMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBtnMinMouseClicked
+        this.setExtendedState(Vendedor.ICONIFIED); //Minimizamos la App
+    }//GEN-LAST:event_jLabelBtnMinMouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        Vendedor_Pnl1 sales = new Vendedor_Pnl1("Sucursal Central", 2020304820);
+        jPanelCard.removeAll();
+        jPanelCard.add(sales);
+        jPanelCard.repaint();
+        jPanelCard.revalidate();
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     /**
      * @param args the command line arguments

@@ -4,11 +4,11 @@
  */
 package com.mycompany.tiendasql.UI;
 
+import com.mycompany.tiendasql.ayudaUI.Tabla;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -18,16 +18,23 @@ import java.util.Date;
  */
 public class Vendedor_Pnl1 extends javax.swing.JPanel {
 
-    /**
-     * Creates new form VendedorP1
-     */
-    public Vendedor_Pnl1() {
-        initComponents();      
+
+    //Creamos Variables que nos van a servir
+    private String sucursal;
+    private int codigoEmp;
+    
+    public Vendedor_Pnl1(String sucursal, int codigoEmp) {
+        initComponents();
+        this.sucursal = sucursal;
+        this.codigoEmp = codigoEmp;
+        this.jPanelCompra.setVisible(false);
+        this.jLabelAgregar.setEnabled(false);
+        this.jLabelGuardar.setEnabled(false);
         Date date = new Date();
         DateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd");
-        this.jLabelFecha.setText(dateformat.format(date));
-        this.jLabelSucursal.setText("Sucursal Central");
-        this.jPanelCompra.setVisible(false);
+        this.jLabelFecha.setText(this.jLabelFecha.getText() + dateformat.format(date));
+        this.jLabelSucursal.setText(this.sucursal);
+        this.jLabelCodigoEmpleado.setText("Codigo Empleado: " + this.codigoEmp);
     }
 
     /**
@@ -39,7 +46,6 @@ public class Vendedor_Pnl1 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelTituloFecha = new javax.swing.JLabel();
         jLabelFecha = new javax.swing.JLabel();
         jLabelSucursal = new javax.swing.JLabel();
         jLabelNIT = new javax.swing.JLabel();
@@ -57,49 +63,51 @@ public class Vendedor_Pnl1 extends javax.swing.JPanel {
         jLabelBuscar = new javax.swing.JLabel();
         jPanelAgregar = new javax.swing.JPanel();
         jLabelAgregar = new javax.swing.JLabel();
+        jScrollPaneProductos = new javax.swing.JScrollPane();
+        jTableProductos = new javax.swing.JTable();
+        jPanelGuardar = new javax.swing.JPanel();
+        jLabelGuardar = new javax.swing.JLabel();
+        jLabelCliente = new javax.swing.JLabel();
+        jLabelCodigoEmpleado = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelTituloFecha.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabelTituloFecha.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelTituloFecha.setText("Fecha: ");
-        add(jLabelTituloFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 90, -1));
-
-        jLabelFecha.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelFecha.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelFecha.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        add(jLabelFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 160, 30));
+        jLabelFecha.setText("Fecha: ");
+        add(jLabelFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 250, -1));
 
-        jLabelSucursal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelSucursal.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelSucursal.setForeground(new java.awt.Color(0, 0, 0));
         jLabelSucursal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        add(jLabelSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 200, 30));
+        add(jLabelSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, 250, 30));
 
-        jLabelNIT.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelNIT.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelNIT.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNIT.setText("NIT:");
-        add(jLabelNIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 120, 10));
+        add(jLabelNIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 50, -1));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 120, 10));
 
         jPanelGenerar.setBackground(new java.awt.Color(94, 96, 98));
-        jPanelGenerar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelGenerar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanelGenerarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanelGenerarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanelGenerarMouseExited(evt);
-            }
-        });
+        jPanelGenerar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabelGenerar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelGenerar.setForeground(new java.awt.Color(255, 255, 255));
         jLabelGenerar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelGenerar.setText("GENERAR");
+        jLabelGenerar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelGenerar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelGenerarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelGenerarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelGenerarMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelGenerarLayout = new javax.swing.GroupLayout(jPanelGenerar);
         jPanelGenerar.setLayout(jPanelGenerarLayout);
@@ -116,7 +124,7 @@ public class Vendedor_Pnl1 extends javax.swing.JPanel {
                 .addComponent(jLabelGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(jPanelGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 130, 30));
+        add(jPanelGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, 130, 30));
 
         jTextFieldNIT.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNIT.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -134,15 +142,15 @@ public class Vendedor_Pnl1 extends javax.swing.JPanel {
                 jTextFieldNITKeyTyped(evt);
             }
         });
-        add(jTextFieldNIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 120, 30));
+        add(jTextFieldNIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 120, 30));
 
         jPanelCompra.setBackground(new java.awt.Color(255, 255, 255));
         jPanelCompra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelProducto.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelProducto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelProducto.setForeground(new java.awt.Color(0, 0, 0));
         jLabelProducto.setText("Codigo Producto:");
-        jPanelCompra.add(jLabelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanelCompra.add(jLabelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
         jTextFieldCodProd.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldCodProd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -160,19 +168,19 @@ public class Vendedor_Pnl1 extends javax.swing.JPanel {
                 jTextFieldCodProdKeyTyped(evt);
             }
         });
-        jPanelCompra.add(jTextFieldCodProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 140, 30));
-        jPanelCompra.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 32, 140, 10));
+        jPanelCompra.add(jTextFieldCodProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 140, 30));
+        jPanelCompra.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 140, 10));
 
         jSpinnerCantidad.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jSpinnerCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         jSpinnerCantidad.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jSpinnerCantidad.setEnabled(false);
-        jPanelCompra.add(jSpinnerCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 50, 30));
+        jPanelCompra.add(jSpinnerCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 50, 30));
 
-        jLabelCantidad.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelCantidad.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelCantidad.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCantidad.setText("Cantidad:");
-        jPanelCompra.add(jLabelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, -1, -1));
+        jPanelCompra.add(jLabelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
 
         jPanelBuscar.setBackground(new java.awt.Color(94, 96, 98));
 
@@ -197,162 +205,264 @@ public class Vendedor_Pnl1 extends javax.swing.JPanel {
         jPanelBuscar.setLayout(jPanelBuscarLayout);
         jPanelBuscarLayout.setHorizontalGroup(
             jPanelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBuscarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanelBuscarLayout.setVerticalGroup(
             jPanelBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addGroup(jPanelBuscarLayout.createSequentialGroup()
+                .addComponent(jLabelBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanelCompra.add(jPanelBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, -1, 30));
+        jPanelCompra.add(jPanelBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, -1, 30));
 
         jPanelAgregar.setBackground(new java.awt.Color(94, 96, 98));
-        jPanelAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelAgregar.setEnabled(false);
-        jPanelAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanelAgregarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanelAgregarMouseExited(evt);
-            }
-        });
+        jPanelAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabelAgregar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelAgregar.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAgregar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelAgregar.setText("AGREGAR");
+        jLabelAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelAgregarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelAgregarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelAgregarMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelAgregarLayout = new javax.swing.GroupLayout(jPanelAgregar);
         jPanelAgregar.setLayout(jPanelAgregarLayout);
         jPanelAgregarLayout.setHorizontalGroup(
             jPanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAgregarLayout.createSequentialGroup()
-                .addComponent(jLabelAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAgregarLayout.createSequentialGroup()
+                .addGap(0, 1, Short.MAX_VALUE)
+                .addComponent(jLabelAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanelAgregarLayout.setVerticalGroup(
             jPanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAgregarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanelCompra.add(jPanelAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 100, 30));
+        jPanelCompra.add(jPanelAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, 100, 30));
+
+        jScrollPaneProductos.setViewportView(jTableProductos);
+
+        jPanelCompra.add(jScrollPaneProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 800, 250));
+
+        jPanelGuardar.setBackground(new java.awt.Color(94, 96, 98));
+
+        jLabelGuardar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelGuardar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelGuardar.setText("GUARDAR");
+        jLabelGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelGuardarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelGuardarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelGuardarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelGuardarLayout = new javax.swing.GroupLayout(jPanelGuardar);
+        jPanelGuardar.setLayout(jPanelGuardarLayout);
+        jPanelGuardarLayout.setHorizontalGroup(
+            jPanelGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+        );
+        jPanelGuardarLayout.setVerticalGroup(
+            jPanelGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGuardarLayout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(jLabelGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
+        );
+
+        jPanelCompra.add(jPanelGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 150, 40));
+
+        jLabelCliente.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelCliente.setForeground(new java.awt.Color(0, 0, 0));
+        jPanelCompra.add(jLabelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 30));
 
         add(jPanelCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 800, 440));
+
+        jLabelCodigoEmpleado.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelCodigoEmpleado.setForeground(new java.awt.Color(0, 0, 0));
+        add(jLabelCodigoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 330, 30));
 
         getAccessibleContext().setAccessibleParent(this);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanelGenerarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelGenerarMouseEntered
-        // TODO add your handling code here:
-        if (this.jPanelGenerar.isEnabled()) {
-            this.jPanelGenerar.setBackground(new Color (152, 155, 158));
+    
+    //Eventos de desvanecidos al seleccionar los botones
+    //Linea 318-356 -> Los Entered cambian a un color mas claro siempre y cuando esten habilitados, los Exited regresan el boton al color normal 
+    private void jLabelGenerarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGenerarMouseEntered
+        if (this.jLabelGenerar.isEnabled()) {
+            this.jPanelGenerar.setBackground(new Color(152, 155, 158));
         }
-    }//GEN-LAST:event_jPanelGenerarMouseEntered
+    }//GEN-LAST:event_jLabelGenerarMouseEntered
 
-    private void jPanelGenerarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelGenerarMouseExited
-        // TODO add your handling code here:
-        this.jPanelGenerar.setBackground(new Color (94, 96, 98));
-    }//GEN-LAST:event_jPanelGenerarMouseExited
-
-    private void jPanelGenerarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelGenerarMouseClicked
-        // TODO add your handling code here:
-        this.jTextFieldNIT.setFocusable(false);
-        this.jTextFieldNIT.requestFocus();
-        this.jTextFieldNIT.setEditable(false);   
-        if (this.jTextFieldNIT.getText().isEmpty()) {
-            this.jTextFieldNIT.setText("C/F");
-            System.out.println("Es consumidor Final");
-        }
-        this.jPanelGenerar.setEnabled(false);
-        this.jPanelCompra.setVisible(true);
-    }//GEN-LAST:event_jPanelGenerarMouseClicked
-
-    private void jTextFieldNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNITKeyTyped
-        // TODO add your handling code here:
-        if (this.jTextFieldNIT.getText().length() > 7) {
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
-        if (!(evt.getKeyChar() >= 48 && evt.getKeyChar() <= 57)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextFieldNITKeyTyped
-
-    private void jTextFieldNITMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNITMousePressed
-        // TODO add your handling code here:
-        this.jTextFieldNIT.setFocusable(true);
-        this.jTextFieldNIT.requestFocus();
-    }//GEN-LAST:event_jTextFieldNITMousePressed
-
-    private void jTextFieldCodProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCodProdKeyTyped
-        // TODO add your handling code here:
-        if (this.jTextFieldCodProd.getText().length() > 11) {
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
-    }//GEN-LAST:event_jTextFieldCodProdKeyTyped
-
-    private void jTextFieldCodProdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldCodProdMousePressed
-        // TODO add your handling code here:
-        this.jTextFieldCodProd.setFocusable(true);
-        this.jTextFieldCodProd.requestFocus();
-    }//GEN-LAST:event_jTextFieldCodProdMousePressed
+    private void jLabelGenerarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGenerarMouseExited
+        this.jPanelGenerar.setBackground(new Color(94, 96, 98));
+    }//GEN-LAST:event_jLabelGenerarMouseExited
 
     private void jLabelBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBuscarMouseEntered
-        // TODO add your handling code here:
-        if (this.jPanelBuscar.isEnabled()) {
+        if (this.jLabelBuscar.isEnabled()) {
             this.jPanelBuscar.setBackground(new Color(152, 155, 158));
         }
     }//GEN-LAST:event_jLabelBuscarMouseEntered
 
     private void jLabelBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBuscarMouseExited
-        // TODO add your handling code here:
         this.jPanelBuscar.setBackground(new Color(94, 96, 98));
     }//GEN-LAST:event_jLabelBuscarMouseExited
 
-    private void jPanelAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAgregarMouseEntered
-        // TODO add your handling code here:
-        if (this.jPanelAgregar.isEnabled()) {
+    private void jLabelAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAgregarMouseEntered
+        if (this.jLabelAgregar.isEnabled()) {
             this.jPanelAgregar.setBackground(new Color(152, 155, 158));
         }
-    }//GEN-LAST:event_jPanelAgregarMouseEntered
+    }//GEN-LAST:event_jLabelAgregarMouseEntered
 
-    private void jPanelAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAgregarMouseExited
-        // TODO add your handling code here:
+    private void jLabelAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAgregarMouseExited
         this.jPanelAgregar.setBackground(new Color(94, 96, 98));
-    }//GEN-LAST:event_jPanelAgregarMouseExited
+    }//GEN-LAST:event_jLabelAgregarMouseExited
+
+    private void jLabelGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGuardarMouseEntered
+        if (this.jLabelGuardar.isEnabled()) {
+            this.jPanelGuardar.setBackground(new Color(152, 155, 158));
+        }
+    }//GEN-LAST:event_jLabelGuardarMouseEntered
+
+    private void jLabelGuardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGuardarMouseExited
+        this.jPanelGuardar.setBackground(new Color(94, 96, 98));
+    }//GEN-LAST:event_jLabelGuardarMouseExited
+
+    //Eventos de Click
+    //Los tres botones validan que al dar click esten habilitados
+    private void jLabelGenerarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGenerarMouseClicked
+        if (this.jLabelGenerar.isEnabled()) {
+            if (this.jTextFieldNIT.getText().isEmpty()) { //Valida si el campo del nit esta vacio o no
+                this.jTextFieldNIT.setText("C/F"); //Se marca por defecto el consumidor final
+            }
+            this.jTextFieldNIT.setFocusable(false); //Se quita el puntero del jtextfield
+            this.jTextFieldNIT.requestFocus();
+            this.jTextFieldNIT.setEditable(false); //El textfield se vuelve ineditable
+            this.jLabelGenerar.setEnabled(false); //EL boton se desabilita
+            Tabla.cambiarEncabezado(this.jTableProductos, new String[]{"Codigo Producto", "Nombre Producto", "Cantidad", "Precio C/U", "Sub-Total"});
+            this.jScrollPaneProductos.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+            this.jScrollPaneProductos.getViewport().setBackground(Color.white);
+            this.jPanelCompra.setVisible(true); //Se hace visible el panel de compra
+        }
+    }//GEN-LAST:event_jLabelGenerarMouseClicked
 
     private void jLabelBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBuscarMouseClicked
-        // TODO add your handling code here:
-        if (!this.jTextFieldCodProd.getText().isEmpty()) {
-            this.jPanelAgregar.setEnabled(true);
-            this.jSpinnerCantidad.setEnabled(true);
-            this.jTextFieldCodProd.setFocusable(false);
-            this.jTextFieldCodProd.requestFocus();
-            this.jTextFieldCodProd.setEditable(false);
-            this.jPanelBuscar.setEnabled(false);
-            
+        if (this.jLabelBuscar.isEnabled()) {
+            if (!this.jTextFieldCodProd.getText().isEmpty()) { //Valida que el jtextfield de producto no este vacio
+                this.jTextFieldCodProd.setFocusable(false); //Quita el puntero del jtextfield
+                this.jTextFieldCodProd.requestFocus();
+                this.jSpinnerCantidad.setEnabled(true); //Se habilita el jspinner
+                this.jLabelAgregar.setEnabled(true); //Se habilita el boton de agregar
+                this.jLabelBuscar.setEnabled(false); //Se deshabilita el boton de buscar
+            } else {
+                System.out.println("Esta vacio");
+            }
         }
     }//GEN-LAST:event_jLabelBuscarMouseClicked
 
+    private void jLabelAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAgregarMouseClicked
+        //Tabla.insertarProductos(jTableProductos, venta);
+        if (this.jLabelAgregar.isEnabled()) {
+            if (this.jTableProductos.getRowCount() == 0) { //Valida que haya cero filas
+                this.jLabelGuardar.setEnabled(true);
+            }
+            this.jTextFieldCodProd.setText(""); //Se resetea el texto del jtextfield
+            this.jSpinnerCantidad.setValue(1); //Se resetea el valor del jspinner
+            this.jSpinnerCantidad.setEnabled(false); //Se deshabilita el jspinner
+            this.jLabelBuscar.setEnabled(true); //Se habilita el boton buscar
+            this.jLabelAgregar.setEnabled(false); //Se deshabilita el boton agregar
+        }
+    }//GEN-LAST:event_jLabelAgregarMouseClicked
+
+    private void jLabelGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGuardarMouseClicked
+        if (this.jLabelGuardar.isEnabled()) {
+            
+        }
+    }//GEN-LAST:event_jLabelGuardarMouseClicked
+
+    //Eventos de tipo KeyTyped para los textfields
+    
+    private void jTextFieldNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNITKeyTyped
+        if (this.jTextFieldNIT.getText().length() > 7) { //Valida que no acepte mas de 8 caracteres
+            evt.consume(); //No deja escribir
+            Toolkit.getDefaultToolkit().beep(); //Se utiliza un sonido de tope
+        }
+        if (!(evt.getKeyChar() >= 48 && evt.getKeyChar() <=57)) { //Valida que solo sean caracteres numericos
+            evt.consume(); //No deja escribir cualquier otro caracter
+        }
+    }//GEN-LAST:event_jTextFieldNITKeyTyped
+
+    private void jTextFieldCodProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCodProdKeyTyped
+        if (this.jTextFieldCodProd.getText().length() > 11) { //Valida que no ingrese mas de 12 caracteres
+            evt.consume(); //No deja escribir
+            Toolkit.getDefaultToolkit().beep(); //Sonido de tope
+        }
+    }//GEN-LAST:event_jTextFieldCodProdKeyTyped
+
+    //Eventos de tipo Pressed para los textfields
+    
+    private void jTextFieldNITMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNITMousePressed
+        this.jTextFieldNIT.setFocusable(true); //Se habilita la escritura
+        this.jTextFieldCodProd.requestFocus();
+    }//GEN-LAST:event_jTextFieldNITMousePressed
+
+    private void jTextFieldCodProdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldCodProdMousePressed
+        if (!this.jLabelBuscar.isEnabled()) { //Valida si el boton de buscar esta desactivado
+            this.jLabelBuscar.setEnabled(true); //Lo activa para buscar el nuevo codigo
+            this.jLabelAgregar.setEnabled(false); //Desactiva el boton de agregar
+        }
+        this.jTextFieldCodProd.setFocusable(true); //Habilita la escritura
+        this.jTextFieldCodProd.requestFocus();
+    }//GEN-LAST:event_jTextFieldCodProdMousePressed
+
+
+    
+   
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelAgregar;
     private javax.swing.JLabel jLabelBuscar;
     private javax.swing.JLabel jLabelCantidad;
+    private javax.swing.JLabel jLabelCliente;
+    private javax.swing.JLabel jLabelCodigoEmpleado;
     private javax.swing.JLabel jLabelFecha;
     private javax.swing.JLabel jLabelGenerar;
+    private javax.swing.JLabel jLabelGuardar;
     private javax.swing.JLabel jLabelNIT;
     private javax.swing.JLabel jLabelProducto;
     private javax.swing.JLabel jLabelSucursal;
-    private javax.swing.JLabel jLabelTituloFecha;
     private javax.swing.JPanel jPanelAgregar;
     private javax.swing.JPanel jPanelBuscar;
     private javax.swing.JPanel jPanelCompra;
     private javax.swing.JPanel jPanelGenerar;
+    private javax.swing.JPanel jPanelGuardar;
+    private javax.swing.JScrollPane jScrollPaneProductos;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSpinner jSpinnerCantidad;
+    private javax.swing.JTable jTableProductos;
     private javax.swing.JTextField jTextFieldCodProd;
     private javax.swing.JTextField jTextFieldNIT;
     // End of variables declaration//GEN-END:variables
